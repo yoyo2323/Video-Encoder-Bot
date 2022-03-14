@@ -1,1 +1,42 @@
+{
+    "name": "Video Converter",
+    "repository": "https://github.com/yoyo2323/Video-Encoder-Bot",
+    "env": {
+        "API_ID": {
+            "description": "",
+            "required": "True"
+        },
+        "API_HASH": {
+            "description": "",
+            "required": "True"
+        },
+        "BOT_TOKEN": {
+            "description": "",
+            "required": "True"
+        },
+        "SUDO_USERS": {
+            "description": "",
+            "required": "True"
+        },
+        "DOWNLOAD_DIR": {
+            "description": "VideoEncoder/utils/downloads/",
+            "required": "True"
+        }
+    },
+    "stack": "container",
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+        }
+    ],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }
+}
 
