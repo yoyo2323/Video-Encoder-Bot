@@ -20,7 +20,7 @@ video_mimetype = [
 
 @app.on_message(filters.incoming & filters.command(['start', 'help']))
 def help_message(app, message):
-    message.reply_text(f"Hi {message.from_user.mention()}\nI can encode Telegram files in xAV1,(1024x576) just send me a video.", quote=True)
+    message.reply_text(f"Hi {message.from_user.mention()}\nI can encode Telegram files in AUDIO just send me a video.", quote=True)
 
 @app.on_message(filters.user(sudo_users) & filters.incoming & (filters.video | filters.document))
 def encode_video(app, message):
