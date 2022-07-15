@@ -36,7 +36,7 @@ def encode(filepath):
             video_opts = '-c:v copy -tag:v avif'
     else:
         # Transcode to h265 / hvc1
-        video_opts = '-c:v libsvtav1 -s 1024x576 -crf 45 -preset 2 -sn -threads 8'
+        video_opts = '-c:v libsvtav1 -s 1024x576 -crf 45  -sn -threads 8'
     # Get the audio channel codec
     audio_codec = get_codec(filepath, channel='a:0')
     if audio_codec == []:
