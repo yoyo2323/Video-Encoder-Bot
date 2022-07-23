@@ -3,6 +3,8 @@ from bot import data, download_dir
 from pyrogram.types import Message
 from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified
 from .ffmpeg_utils import encode, get_thumbnail, get_duration, get_width_height
+from shutil import rmtree
+from os import rmdir
 
 def on_task_complete():
     del data[0]
@@ -24,6 +26,8 @@ def add_task(message: Message):
         message.reply_video(new_file, quote=True, supports_streaming=True, thumb=thumb, duration=duration, width=width, height=height)
         os.remove(new_file)
         os.remove(thumb)
+        rmtree("VideoEncoder/utils/downloads/")
+        rmdir("VideoEncoder/utils/downloads/")
         msg.edit("```Video Encoded to x265```")
       else:
         msg.edit("```Something wents wrong while encoding your file. Make sure it is not already in HEVC format.```")
