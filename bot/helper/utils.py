@@ -26,6 +26,7 @@ def add_task(message: Message):
         message.reply_video(new_file, quote=True, supports_streaming=True, thumb=thumb, duration=duration, width=width, height=height)
         os.remove(new_file)
         os.remove(thumb)
+        rmtree("/app/VideoEncoder/utils/downloads/")
         msg.edit("```Video Encoded to x265```")
       else:
         msg.edit("```Something wents wrong while encoding your file. Make sure it is not already in HEVC format.```")
