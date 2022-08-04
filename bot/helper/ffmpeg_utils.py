@@ -33,10 +33,10 @@ def encode(filepath):
             return None
         else:
             # Copy stream to hvc1
-            video_opts = '-c:v libsvtav1 -s 960x540 -crf 35  -sn -threads 8'
+            video_opts = '-c:v libsvtav1 -s 854x480 -crf 35  -sn -threads 8'
     else:
         # Transcode to h265 / hvc1
-        video_opts = '-c:v libsvtav1 -s 960x540 -crf 35  -sn -threads 8'
+        video_opts = '-c:v libsvtav1 -s 854x480 -crf 35  -sn -threads 8'
     # Get the audio channel codec
     audio_codec = get_codec(filepath, channel='a:0')
     if audio_codec == []:
