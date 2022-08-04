@@ -27,16 +27,16 @@ def encode(filepath):
         print('Skipping: no video codec reported')
         return None
     # Video transcode options
-    if video_codec[0] == 'hevc':
-        if video_codec[1] == 'hvc1':
+    if video_codec[0] == 'avif':
+        if video_codec[1] == 'avif':
             print('Skipping: already av1 / avif')
             return None
         else:
             # Copy stream to hvc1
-            video_opts = '-c:v libx265 -s 1024x576 -crf 28  -sn -threads 8'
+            video_opts = '-c:v libsvtav1 -s 854x480 -crf 35  -sn -threads 8'
     else:
         # Transcode to h265 / hvc1
-        video_opts = '-c:v libx265 -s 854x480 -crf 28  -sn -threads 8'
+        video_opts = '-c:v libsvtav1 -s 854x480 -crf 35  -sn -threads 8'
     # Get the audio channel codec
     audio_codec = get_codec(filepath, channel='a:0')
     if audio_codec == []:
