@@ -27,8 +27,8 @@ def encode(filepath):
         print('Skipping: no video codec reported')
         return None
     # Video transcode options
-    if video_codec[0] == 'avif':
-        if video_codec[1] == 'avif':
+    if video_codec[0] == 'hevc':
+        if video_codec[1] == 'hvc1':
             print('Skipping: already av1 / avif')
             return None
         else:
