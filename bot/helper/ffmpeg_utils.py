@@ -41,10 +41,10 @@ def encode(filepath):
     audio_codec = get_codec(filepath, channel='a:0')
     if audio_codec == []:
         audio_opts = ''
-    elif audio_codec[0] == 'aac':
-        audio_opts = '-c:a libfdk_aac -profile:a aac_he_v2 -vbr 1'
+    elif audio_codec[0] == 'opus':
+        audio_opts = '-c:a libopus -b:a 48k'
     else:
-        audio_opts = '-c:a libfdk_aac -profile:a aac_he_v2 -vbr 1'
+        audio_opts = '-c:a libopus -b:a 48k'
     call(['ffmpeg', '-i', filepath] + video_opts.split() + audio_opts.split() + [output_filepath])
     os.remove(filepath)
     return output_filepath
