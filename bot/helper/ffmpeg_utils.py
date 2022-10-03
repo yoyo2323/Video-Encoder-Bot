@@ -33,7 +33,7 @@ def encode(filepath):
             return None
         else:
             # Copy stream to hvc1
-            video_opts = '-c:v libaom-av1 -s 854x480  -sn'
+            video_opts = '-c:v libaom-av1 -s 854x480  -sn -row-mt true -threads 8 -crf 28 -tile-columns 1 -tile-rows 0'
     else:
         # Transcode to h265 / hvc1
         video_opts = '-c:v libaom-av1 -s 854x480  -sn'
